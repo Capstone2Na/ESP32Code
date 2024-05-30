@@ -131,9 +131,15 @@ void setup() {
 
 
 void loop() {
-  lcd.clear();
   lcd.setCursor(0, 0);
-  lcd.print("   HydroSync");
+  lcd.print("   HydroSync    ");
+
+  while(!Blynk.connected()){
+    digitalWrite(solenoidPin, LOW);
+    lcd.print("Reconnecting... ");
+    Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
+  }
+  
 
   sensLow = digitalRead(levelLowPin);
   sensHigh = digitalRead(levelHighPin);
@@ -144,7 +150,7 @@ void loop() {
   float loop_Temp = readTemperature();
 
   // Prepare the scrolling text
-  scrollText = " Flowrate: " + String(flowRate, 2) + " L/min" + "   Total: " + String(totalLiters, 2) + " L" + "  | pH: " + String(loop_PH, 2) + "  Turbidity: " + String(loop_Turbidity, 2) + "  Temp: " + String(loop_Temp, 2) + "C";
+  scrollText = "               Flowrate: " + String(flowRate, 2) + "L/min   Total: " + String(totalLiters, 2) + "L   pH: " + String(loop_PH, 2) + "  Turbidity: " + String(loop_Turbidity, 2) + "ntu    Temp: " + String(loop_Temp, 2) + " deg. C               ";
 
 
   // Handle scrolling text
