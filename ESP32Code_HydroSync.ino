@@ -64,14 +64,14 @@ float ntu;
 #define BLYNK_PRINT Serial
 
 /* Fill in information from Blynk Device Info here */
-#define BLYNK_TEMPLATE_ID "TMPL63vXDH_cF"
-#define BLYNK_TEMPLATE_NAME "Capstone"
-#define BLYNK_AUTH_TOKEN "sSHMEXk1Jv-4tmmlc3xS37ANZqtRgx_t"
+#define BLYNK_TEMPLATE_ID "YourTemplateID"
+#define BLYNK_TEMPLATE_NAME "HydroSync"
+#define BLYNK_AUTH_TOKEN "YourAuthToken"
 
 #include <BlynkSimpleEsp32.h>  //esp32
 
-char ssid[] = "IphoneNi";
-char pass[] = "11111111";
+char ssid[] = "YourSSID";
+char pass[] = "YourPassword";
 
 int sensLow = 0;
 int sensHigh = 0;
